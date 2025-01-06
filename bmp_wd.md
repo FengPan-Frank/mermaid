@@ -2,7 +2,7 @@
 flowchart
     id_start(Start Health Check)
     style id_start fill:#8AF
-    id_docker(Check container common Health Status Via Docker inpect and logs)
+    id_docker("container common check")  
     style id_docker fill:#AF9
     id_supervisorctl(Check supervisorctl status)
     id_bmp_port(Check bmp port)
@@ -21,4 +21,5 @@ flowchart
     id_bmp_port-->|port is inaccessible|id_unhealthy
     id_bmp_db-->|db is accessible|id_healthy
     id_bmp_db-->|db is inaccessible|id_unhealthy
+
 ```
