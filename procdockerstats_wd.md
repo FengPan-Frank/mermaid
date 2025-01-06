@@ -4,7 +4,7 @@ flowchart
     style id_start fill:#8AF
     id_docker("container common check")  
     style id_docker fill:#AF9
-    id_supervisorctl(Check supervisorctl status)
+    id_systemctl(Check systemctl status)
     id_state_db(Check db LastUpdateTime)
     id_healthy(Container is healthy)
     style id_healthy fill:#AF9
@@ -12,10 +12,10 @@ flowchart
     style id_unhealthy fill:#F88
 
     id_start-->|Start|id_docker
-    id_docker-->|Healthy|id_supervisorctl
+    id_docker-->|Healthy|id_systemctl
     id_docker-->|Unhealthy|id_unhealthy
-    id_supervisorctl-->|daemon is running|id_state_db
-    id_supervisorctl-->|daemon is not running|id_unhealthy
+    id_systemctl-->|daemon is running|id_state_db
+    id_systemctl-->|daemon is not running|id_unhealthy
     id_state_db-->|service is alive|id_healthy
     id_state_db-->|service is not alive|id_unhealthy
 
